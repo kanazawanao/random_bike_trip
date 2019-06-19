@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'random-bike-trip';
+  text : string = 'map display';
+  lat: number = 35.681236 ;
+  lng: number = 139.767125;
+  zoom: number = 15;
 }
