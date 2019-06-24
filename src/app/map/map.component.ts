@@ -6,14 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  lat: number = 35.7074736;
-  lng: number = 139.9567728;
+  lat: number = 0;
+  lng: number = 0;
   zoom: number = 17;
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getLocation();
   }
 
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position: Position) => {
+          if (position) {
+            this.lat = position.coords.latitude;
+            this.lng = position.coords.longitude;
+          }
+        },
+        (error: PositionError) => console.log(error)
+      );
+    } else {
+      alert('Geolocation is not supported by this browser.');
+    }
+  }
 }
