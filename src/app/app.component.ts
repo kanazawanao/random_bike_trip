@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   text : string = 'map display';
-  lat: number = 35.681236 ;
-  lng: number = 139.767125;
-  zoom: number = 15;
 }
